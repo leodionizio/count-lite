@@ -4,10 +4,8 @@
       Nova Finança
     </ion-title>
     <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <h3>
-          <ion-icon name="md-close"></ion-icon>
-        </h3>
+      <button ion-button clear icon-only color="light" (click)="dismiss()">
+        <ion-icon name="md-close"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -15,5 +13,53 @@
 
 
 <ion-content padding>
+
+  <form [formGroup]="form" (ngSubmit)="saveData()">
+
+    <ion-list radio-group formControlName="type">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label>Renda</ion-label>
+              <ion-radio value="1">Renda</ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label>Gasto</ion-label>
+              <ion-radio checked="true" value="2">Gasto</ion-radio>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-list>
+
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Descrição</ion-label>
+        <ion-input type="text" placeholder="..." formControlName="description"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Valor</ion-label>
+        <ion-input type="number" placeholder="R$" formControlName="value"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Mês</ion-label>
+        <ion-select formControlName="month">
+          <ion-option *ngFor="let month of months" [value]="month.value">{{ month.label }}</ion-option>
+        </ion-select>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button block color="success" type="submit">Salvar</button>
+  </form>
+
 
 </ion-content>
