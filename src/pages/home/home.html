@@ -22,14 +22,14 @@
       <div class="header">
         <ion-item no-lines>
           <ion-icon name="calendar" item-left></ion-icon>&emsp;
-          <h2>{{ month.label }}</h2>
+          <h1>{{ month.label }}</h1>
         </ion-item>
         <br>
         <h3>Saldo:
           <span [ngClass]="(month.totalRenda - month.totalGasto) > 0 ? 'saldoPositivo' : 'saldoNegativo'">R$ {{ (month.totalRenda) - (month.totalGasto) }}</span>
         </h3>
-        <br>
         <hr>
+        <br>
       </div>
 
       <div class="body">
@@ -41,7 +41,7 @@
 
         <ion-list>
           <ion-item *ngFor="let exp of month.expenses" no-lines>
-            {{ exp.description }} - {{ exp.value }}
+             R$ {{ exp.value }} - {{ exp.description }}
             <button ion-button clear icon-only (click)="deleteExp(exp)" item-end>
               <ion-icon name="ios-trash-outline"></ion-icon>
             </button>
@@ -55,7 +55,7 @@
 
         <ion-list>
           <ion-item *ngFor="let inc of month.incomes" no-lines>
-            {{ inc.description }} - {{ inc.value }}
+            R$ {{ inc.value }} - {{ inc.description }}
             <button ion-button clear icon-only (click)="deleteInc(inc)" item-end>
               <ion-icon name="ios-trash-outline"></ion-icon>
             </button>

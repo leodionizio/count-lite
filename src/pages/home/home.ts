@@ -1,4 +1,3 @@
-import { MonthModel } from './../../models/month.model';
 import { ExpenseModel } from './../../models/expense.model';
 import { IncomeService } from './../../providers/income/income.service';
 import { ExpenseService } from './../../providers/expense/expense.service';
