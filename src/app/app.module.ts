@@ -1,3 +1,4 @@
+import { SQLite } from '@ionic-native/sqlite';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -10,28 +11,31 @@ import { IncomeService } from '../providers/income/income.service';
 import { SqliteConnService } from '../providers/sqlite-conn/sqlite-conn.service';
 import { NewFinancePage } from '../pages/new-finance/new-finance';
 
-
 @NgModule({
   declarations: [
     MyApp,
-    NewFinancePage        
+    NewFinancePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      mode: 'md',
+      backButtonText: ''      
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    NewFinancePage        
+    NewFinancePage
   ],
   providers: [
     ExpenseService,
-    IncomeService,    
+    IncomeService,
     StatusBar,
+    SQLite,
     SplashScreen,
     SqliteConnService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
   ]
 })
-export class AppModule {}
+export class AppModule { }
