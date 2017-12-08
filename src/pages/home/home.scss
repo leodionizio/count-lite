@@ -1,3 +1,26 @@
 page-home {
-
+    ion-slide.swiper-slide {
+        border: 1px solid map-get($colors, primary) !important;
+        -webkit-align-items: start !important;
+        -ms-flex-align: start !important;
+        align-items: start !important;
+        padding: 12px !important;
+        border-radius: 4px;
+        .header,
+        .body {
+            text-align: start !important;
+        }
+    }
+    .saldoNegativo {
+        color: map-get($colors, danger)
+    }
+    .saldoPositivo {
+        color: map-get($colors, success)
+    }
+    #totalGasto {
+        color: map-get($colors, danger)
+    }
+    #totalRenda {
+        color: map-get($colors, success)
+    }
 }

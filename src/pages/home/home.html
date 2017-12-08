@@ -1,10 +1,13 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      Count lite
+      Count Lite
     </ion-title>
 
     <ion-buttons end>
+      <button ion-button icon-only clear (click)="refresh()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>&emsp;
       <button ion-button icon-only clear (click)="openModal()">
         <ion-icon name="add"></ion-icon>
       </button>
@@ -13,28 +16,54 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-card>
-        
-          <ion-card-header>
-            Card Header
-          </ion-card-header>
-        
-          <ion-card-content>
-            <!-- Add card content here! -->
-          </ion-card-content>
-        
-        </ion-card>
-
 
   <ion-slides>
-    <ion-slide>
-      <h1>Slide 1</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 2</h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Slide 3</h1>
+    <ion-slide *ngFor="let month of months">
+      <div class="header">
+        <ion-item no-lines>
+          <ion-icon name="calendar" item-left></ion-icon>&emsp;
+          <h2>{{ month.label }}</h2>
+        </ion-item>
+        <br>
+        <h3>Saldo:
+          <span [ngClass]="(month.totalRenda - month.totalGasto) > 0 ? 'saldoPositivo' : 'saldoNegativo'">R$ {{ (month.totalRenda) - (month.totalGasto) }}</span>
+        </h3>
+        <br>
+        <hr>
+      </div>
+
+      <div class="body">
+
+        <!-- GASTOS -->
+        <h5>Gastos:
+          <span id="totalGasto"> R$ {{ month.totalGasto }}</span>
+        </h5>
+
+        <ion-list>
+          <ion-item *ngFor="let exp of month.expenses" no-lines>
+            {{ exp.description }} - {{ exp.value }}
+            <button ion-button clear icon-only (click)="deleteExp(exp)" item-end>
+              <ion-icon name="ios-trash-outline"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+
+        <!-- RENDA -->
+        <h5>Renda:
+          <span id="totalRenda"> R$ {{ month.totalRenda }}</span>
+        </h5>
+
+        <ion-list>
+          <ion-item *ngFor="let inc of month.incomes" no-lines>
+            {{ inc.description }} - {{ inc.value }}
+            <button ion-button clear icon-only (click)="deleteInc(inc)" item-end>
+              <ion-icon name="ios-trash-outline"></ion-icon>
+            </button>
+          </ion-item>
+        </ion-list>
+
+      </div>
+
     </ion-slide>
   </ion-slides>
 </ion-content>
