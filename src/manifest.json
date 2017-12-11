@@ -1,13 +1,13 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Count Lite",
+  "short_name": "Count",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
     "src": "assets/imgs/logo.png",
-    "sizes": "512x512",
+    "sizes": "400x400",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "background_color": "#9933ff",
+  "theme_color": "#9933ff"
 }
