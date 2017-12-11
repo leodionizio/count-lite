@@ -65,7 +65,7 @@ export class NewFinancePage {
 
         this.incService.create(this.model)
           .then(res => {
-            this.dismiss();
+            this.dismiss();            
           })
           .catch(err => {
             console.log(err);
