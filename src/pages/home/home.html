@@ -20,9 +20,10 @@
   <ion-slides>
     <ion-slide *ngFor="let month of months">
       <div class="header">
-        <ion-item no-lines>
-          <ion-icon name="calendar" item-left></ion-icon>&emsp;
-          <h1>{{ month.label }}</h1>
+        <ion-item no-lines class="label-month">
+          <h1>
+            <ion-icon name="calendar" item-left></ion-icon>&emsp; {{ month.label }}
+          </h1>
         </ion-item>
         <br>
         <h3>Saldo:
@@ -41,13 +42,13 @@
 
         <ion-list>
           <ion-item *ngFor="let exp of month.expenses" no-lines>
-             R$ {{ exp.value }} - {{ exp.description }}
+            R$ {{ exp.value }} - {{ exp.description }}
             <button ion-button clear icon-only (click)="deleteExp(exp)" item-end>
               <ion-icon name="ios-trash-outline"></ion-icon>
             </button>
           </ion-item>
         </ion-list>
-
+        <hr>
         <!-- RENDA -->
         <h5>Renda:
           <span id="totalRenda"> R$ {{ month.totalRenda }}</span>

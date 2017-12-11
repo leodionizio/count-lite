@@ -1,6 +1,10 @@
 page-home {
+    ion-slides {
+        box-shadow: 1px 2px 8px #888;
+    }
     ion-slide.swiper-slide {
-        border: 1px solid map-get($colors, primary) !important;
+        // border: 1px solid map-get($colors, primary) !important;
+        background: #fff;
         -webkit-align-items: start !important;
         -ms-flex-align: start !important;
         align-items: start !important;
@@ -8,7 +12,15 @@ page-home {
         border-radius: 4px;
         .header,
         .body {
+            background: #fff !important;
             text-align: start !important;
+            & {
+                .label-month {
+                    h1 {
+                        color: map-get($colors, primary) !important;
+                    }
+                }
+            }
         }
     }
     .saldoNegativo {
